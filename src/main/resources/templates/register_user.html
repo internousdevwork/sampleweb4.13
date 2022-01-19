@@ -58,7 +58,7 @@
 					<span class="info hidden">登録が完了しました。</span>
 				</th>
 				<th class="buttonArea">
-					<button id="confirm" disabled>確認</button>
+					<button id="confirm">確認</button>
 				</th>
 			</tr>
 		</table>
@@ -132,35 +132,15 @@ $(() => {
 	});
 });
 
-/**
- * ユーザー名の重複チェックをおこなう。
- * @param userName ユーザー名
- */
 function checkUserName(userName) {
 	let errInfo = validate({ 'userName': checker.userName });
 	if (errInfo.isError) {
-		createErrorDialog(errInfo.errMsg);
-		$("#inputUserError").dialog("open");
-		return;
-	}
-	$.ajax({
-		type: 'POST',
-		url: '/sampleweb/user/duplicatedUserName',
-		data: JSON.stringify({'userName': userName}),
-		contentType: 'application/json',
-	})
-	.then((result) => {
-		if (result) {	// 重複あり
-			$('button#confirm').prop('disabled', true);
-			$("#duplicatedUserName").dialog("open");
-			$('span#checkOK').prop('class', 'hidden');
-		} else {			// 重複なし
-			$('button#confirm').prop('disabled', false);
-			$('span#checkOK').prop('class', 'info');
+			createErrorDialog(errInfo.errMsg);
+			$("#inputUserError").dialog("open");
+			return;
 		}
-	}, () => {
-		alert('Error: ajax connection failed.');
-	});
+	
+	$("#duplicatedUserName").dialog("open");
 }
 
 </script>
