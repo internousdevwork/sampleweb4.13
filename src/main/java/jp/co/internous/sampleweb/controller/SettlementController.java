@@ -70,7 +70,7 @@ public class SettlementController {
 	public boolean complete(@RequestBody String destinationId) {
 		// 画面から渡されたdestinationIdを取得
 		Map<String, String> map = gson.fromJson(destinationId, Map.class);
-		String id = map.get("destinationId");
+		int id = Integer.parseInt(map.get("destinationId"));
 		
 		int userId = loginSession.getUserId();
 		Map<String, Object> parameter = new HashMap<>();

@@ -96,8 +96,8 @@ public class CartController {
 	public boolean deleteCart(@RequestBody String checkedIdList) {
 		int result = 0;
 
-		Map<String, List<String>> map = gson.fromJson(checkedIdList, Map.class);
-		List<String> checkedIds = map.get("checkedIdList");
+		Map<String, List<Integer>> map = gson.fromJson(checkedIdList, Map.class);
+		List<Integer> checkedIds = map.get("checkedIdList");
 //		 １回のSQLで消すように変更したためこちらはコメントアウトする
 //		for (String id : checkedIds) {
 //			result += cartMapper.deleteById(Integer.parseInt(id));

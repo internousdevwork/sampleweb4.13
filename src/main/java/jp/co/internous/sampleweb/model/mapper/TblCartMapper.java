@@ -83,7 +83,7 @@ public interface TblCartMapper {
 	 * @param checkedIds
 	 * @return 削除件数
 	 */
-	int deleteById(@Param("checkedIds") List<String> checkedIds);
+	int deleteById(@Param("checkedIds") List<Integer> checkedIds);
 	
 	/**
 	 * ユーザーIDを条件にカート情報を削除する
