@@ -17,7 +17,7 @@
 		<form name="searchForm" action="/sampleweb/searchItem">
 			カテゴリ
 			<select name="category" id="category">
-				<option value="0" ></option>
+				<option value="0"></option>
 				<option
 					th:each="category: ${categories}"
 					th:selected="${selected == category.id }"

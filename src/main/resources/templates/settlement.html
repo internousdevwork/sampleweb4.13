@@ -17,15 +17,15 @@
 	<div class="container cart">
 		<div>
 			<h2 th:if="${destinations != null && destinations.size() > 0}">宛先を選択し、決済を完了します。</h2>
-			<p class="info"	th:if="${destinations != null && destinations.size() > 0}">宛先の新規登録、削除も可能です。</p>
-			<p class="info"	th:if="${destinations == null || destinations.size() == 0}">宛先情報がありません。新規登録してください。</p>
+			<p class="info" th:if="${destinations != null && destinations.size() > 0}">宛先の新規登録、削除も可能です。</p>
+			<p class="info" th:if="${destinations == null || destinations.size() == 0}">宛先情報がありません。新規登録してください。</p>
 		</div>
-		<table class="destination"	th:if="${destinations != null && destinations.size() > 0}" >
+		<table class="destination" th:if="${destinations != null && destinations.size() > 0}" >
 			<tr>
 				<th>選択</th><th>宛先氏名</th><th>住所</th><th>電話番号</th>
 			</tr>
 			<tr th:each="destination, st: ${destinations}" >
-				<td><input type="radio" name="id" th:checked="${st.index==0}"	th:value="${destination.id}" class="radio" /></td>
+				<td><input type="radio" name="id" th:checked="${st.index==0}" th:value="${destination.id}" class="radio" /></td>
 				<td>
 					<span th:text="${destination.familyName}"></span><span>　</span><span th:text="${destination.firstName}"></span>
 				</td>
@@ -36,7 +36,7 @@
 		<div class="buttonArea">
 			<button id="deleteButton" th:if="${destinations != null && destinations.size() > 0}">削除</button>
 			<form name="destinationForm" action="/sampleweb/destination/">
-				<button type="submit" >新規宛先</button>
+				<button type="submit">新規宛先</button>
 			</form>
 			<button th:if="${destinations != null && destinations.size() > 0}" id="settlementButton">決済</button>
 		</div>
