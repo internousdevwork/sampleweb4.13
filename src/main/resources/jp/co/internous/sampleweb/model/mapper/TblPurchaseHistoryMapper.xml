@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="jp.co.internous.sampleweb.model.mapper.TblPurchaseHistoryMapper">
-	<insert id="insert" useGeneratedKeys="true" parameterType="hashmap">
+	<insert id="insert" useGeneratedKeys="true">
 		INSERT INTO tbl_purchase_history
 			(user_id, product_id, product_count, price, destination_id)
 		SELECT 

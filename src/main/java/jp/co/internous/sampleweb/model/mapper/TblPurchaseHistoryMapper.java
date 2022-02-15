@@ -18,10 +18,11 @@ import org.apache.ibatis.annotations.Mapper;
 public interface TblPurchaseHistoryMapper {
 	/**
 	 * 購入履歴情報を登録する
-	 * @param parameter パラメーター(ユーザーID、宛先情報ID)
+	 * @param destinationId 宛先情報ID
+	 * @param userId ユーザーID
 	 * @return 登録件数
 	 */
-	int insert(Map<String, Object> parameter);
+	int insert(@Param("destinationId") int destinationId, @Param("userId") int userId);
 	
 	/**
 	 * ユーザーIDを条件に購入履歴情報を取得する

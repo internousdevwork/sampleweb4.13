@@ -73,10 +73,8 @@ public class SettlementController {
 		int id = Integer.parseInt(map.get("destinationId"));
 		
 		int userId = loginSession.getUserId();
-		Map<String, Object> parameter = new HashMap<>();
-		parameter.put("destinationId", id);
-		parameter.put("userId", userId);
-		int insertCount = purchaseHistoryMapper.insert(parameter);
+
+		int insertCount = purchaseHistoryMapper.insert(id, userId);
 		
 		int deleteCount = 0;
 		if (insertCount > 0) {
