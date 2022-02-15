@@ -40,7 +40,7 @@
 			<tr th:each="item: ${products}">
 				<td class="image">
 					<a href="/sampleweb/product/" th:href="@{/sampleweb/product/{id}(id=${item.id})}">
-						<img class="itemImage" th:src="@{{imagePath} (imagePath=${item.imageFullPath}) }" />
+						<img class="itemImage" th:src="${item.imageFullPath}" />
 					</a>
 				</td>
 				<td>

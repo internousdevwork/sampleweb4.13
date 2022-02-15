@@ -26,7 +26,7 @@
 			</tr>
 			<tr th:each="cart: ${carts}">
 				<td><input type="checkbox" name="id" class="checkList" th:value="${cart.id}"/></td>
-				<td><img class="itemImage" th:src="@{{imagePath} (imagePath=${cart.imageFullPath}) }" /></td>
+				<td><img class="itemImage" th:src="${cart.imageFullPath}" /></td>
 				<td th:text="${cart.productName}" />
 				<td class="number" th:text="${cart.price}" />
 				<td class="productCount number" th:text="${cart.productCount}" />

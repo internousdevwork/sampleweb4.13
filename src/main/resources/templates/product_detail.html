@@ -22,7 +22,7 @@
 			</tr>
 			<tr>
 				<td class="imageDetail">
-					<img class="itemImageDetail" th:src="@{{imagePath} (imagePath=${product.imageFullPath}) }" alt="" />
+					<img class="itemImageDetail" th:src="${product.imageFullPath}" alt="" />
 				</td>
 				<td class="number" th:text="${product.price} + '円'"/>
 				<td th:text="${product.releaseCompany}"/>
