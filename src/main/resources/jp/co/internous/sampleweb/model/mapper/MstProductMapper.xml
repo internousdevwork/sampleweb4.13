@@ -5,7 +5,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-ma
 	<select id="findByCategoryAndProductName" resultType="jp.co.internous.sampleweb.model.domain.MstProduct">
 		SELECT * FROM mst_product
 		WHERE category_id = #{category} AND
-		<foreach item="keyword" collection="keywords" open="(" close=")" separator="OR"  index="idx">
+		<foreach item="keyword" collection="keywords" open="(" close=")" separator="OR">
 			(product_name LIKE '%${keyword}%') 
 		</foreach>
 		ORDER BY id;
@@ -13,7 +13,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-ma
 	
 	<select id="findByProductName" resultType="jp.co.internous.sampleweb.model.domain.MstProduct">
 		SELECT * FROM mst_product WHERE 
-		<foreach item="keyword" collection="keywords" open="" close="" separator="OR" index="idx">
+		<foreach item="keyword" collection="keywords" open="" close="" separator="OR">
 			(product_name LIKE '%${keyword}%')
 		</foreach>
 		ORDER BY id;
