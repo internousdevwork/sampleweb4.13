@@ -32,8 +32,10 @@ public class MyPageController {
 	@RequestMapping("/")
 	public String index(Model m) {
 		MstUser user = userMapper.findByUserNameAndPassword(loginSession.getUserName(), loginSession.getPassword());
+	
 		m.addAttribute("user", user);
 		m.addAttribute("loginSession", loginSession);
+		
 		return "my_page";
 	}
 }

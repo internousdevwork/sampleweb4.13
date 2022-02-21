@@ -34,6 +34,7 @@ public class ProductController {
 	public String index(@PathVariable("id") int id, Model m) {
 		// 商品情報を取得
 		MstProduct product = productMapper.findById(id);
+		
 		m.addAttribute("product", product);
 		// page_header.htmlでsessionの変数を表示させているため、loginSessionも画面に送る。
 		m.addAttribute("loginSession",loginSession);

@@ -49,6 +49,7 @@ public class UserController {
 	@ResponseBody
 	public boolean duplicatedUserName(@RequestBody UserForm f) {
 		int count = userMapper.findCountByUserName(f.getUserName());
+
 		return count > 0;
 	}
 	

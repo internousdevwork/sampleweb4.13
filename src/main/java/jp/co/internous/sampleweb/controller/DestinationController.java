@@ -45,9 +45,11 @@ public class DestinationController {
 	@RequestMapping("/")
 	public String index(Model m) {
 		MstUser user = userMapper.findByUserNameAndPassword(loginSession.getUserName(),loginSession.getPassword());
+
 		m.addAttribute("user", user);
 		// page_header.htmlでsessionの変数を表示させているため、loginSessionも画面に送る。
 		m.addAttribute("loginSession",loginSession);
+		
 		return "destination";
 	}
 	
@@ -88,6 +90,7 @@ public class DestinationController {
 		if (count > 0) {
 			id = destination.getId();
 		}
+		
 		return id.toString();
 	}
 }

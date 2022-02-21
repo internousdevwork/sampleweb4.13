@@ -52,6 +52,7 @@ public class SettlementController {
 		int userId = loginSession.getUserId();
 		
 		List<MstDestination> destinations = destinationMapper.findByUserId(userId);
+		
 		m.addAttribute("destinations", destinations);
 		// page_header.htmlでsessionの変数を表示させているため、loginSessionも画面に送る。
 		m.addAttribute("loginSession",loginSession);
@@ -80,6 +81,7 @@ public class SettlementController {
 		if (insertCount > 0) {
 			deleteCount = cartMapper.deleteByUserId(userId);
 		}
+		
 		return deleteCount == insertCount;
 	}
 }

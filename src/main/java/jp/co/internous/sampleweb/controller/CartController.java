@@ -51,6 +51,7 @@ public class CartController {
 		// page_header.htmlでsessionの変数を表示させているため、loginSessionも画面に送る。
 		m.addAttribute("loginSession", loginSession);
 		m.addAttribute("carts", carts);
+		
 		return "cart";
 	}
 
@@ -82,6 +83,7 @@ public class CartController {
 			m.addAttribute("loginSession", loginSession);
 			m.addAttribute("carts", carts);
 		}
+		
 		return "cart";
 	}
 
@@ -102,7 +104,9 @@ public class CartController {
 //		for (String id : checkedIds) {
 //			result += cartMapper.deleteById(Integer.parseInt(id));
 //		}
+		
 		result = cartMapper.deleteById(checkedIds);
+		
 		return result > 0;
 	}
 }

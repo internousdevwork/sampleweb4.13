@@ -104,10 +104,10 @@ public class AuthController {
 		if (!newPassword.equals(newPasswordConfirm)) {
 			return "新パスワードと確認用パスワードが一致しません。";
 		}
+		
 		// mst_userとloginSessionのパスワードを更新する
 		userMapper.updatePassword(user.getUserName(), f.getNewPassword());
 		loginSession.setPassword(f.getNewPassword());
-		
 		
 		return "パスワードが再設定されました。";
 	}
