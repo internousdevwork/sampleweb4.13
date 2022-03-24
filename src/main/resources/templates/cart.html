@@ -63,7 +63,12 @@ $(() => {
 		for (checked of checkedList) {
 			checkedIdList.push($(checked).val());
 		}
+		// カートの削除
 		deleteCart(checkedList, checkedIdList);
+		// 購入個数と金額の合計を算出し、合計欄に設定する
+		calcTotalArea();
+		// 削除ボタン非活性
+		changeDisable();
 	});
 
 	$('.checkList').on('change', changeDisable);
@@ -83,7 +88,7 @@ $(() => {
  * @param checkedList:選択されたチェックボックスのリスト、checkedIdList:選択されたチェックボックスの値のリスト
  * @returns なし
  */
-function deleteCart(checkedList, checkedIdList) {
+let deleteCart = (checkedList, checkedIdList) => {
 	$.ajax({
 		type: 'POST',
 		url: '/sampleweb/cart/delete',
@@ -99,10 +104,6 @@ function deleteCart(checkedList, checkedIdList) {
 		if (checkList.length == 0) {
 			location.replace('/sampleweb/cart/');
 		}
-		// 購入個数と金額の合計を算出し、合計欄に設定する
-		calcTotalArea();
-		// 削除ボタン非活性
-		changeDisable();
 	}, () => {
 		alert('Error: ajax connection failed.');
 	});		
@@ -130,7 +131,7 @@ let changeDisable = (event) => {
  * @param なし
  * @returns なし
  */
-function calcTotalArea() {
+let calcTotalArea = () => {
 	let subtotalList = $('.subtotal');
 	let countList = $('.productCount');
 	let totalPrice = 0;
