@@ -40,6 +40,6 @@ public interface MstProductMapper {
 	 * @return 商品情報
 	 */
 	@Select("SELECT * FROM mst_product WHERE id = #{id}")
-	MstProduct findById(@Param("id") int id);
+	MstProduct findById(int id);
 	
 }

@@ -1,7 +1,6 @@
 package jp.co.internous.sampleweb.model.mapper;
 
 import java.util.List;
-import java.util.Map;
 
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Update;
@@ -29,7 +28,7 @@ public interface TblPurchaseHistoryMapper {
 	 * @param userId ユーザーID
 	 * @return 購入履歴情報リスト
 	 */
-	List<PurchaseHistoryDto> findByUserId(@Param("userId") int userId);
+	List<PurchaseHistoryDto> findByUserId(int userId);
 	
 	/**
 	 * ユーザーIDを条件に論理削除する
@@ -37,5 +36,5 @@ public interface TblPurchaseHistoryMapper {
 	 * @return 削除件数
 	 */
 	@Update("UPDATE tbl_purchase_history SET status = 0, updated_at = now() WHERE user_id = #{userId}")
-	int logicalDeleteByUserId(@Param("userId") int userId);
+	int logicalDeleteByUserId(int userId);
 }

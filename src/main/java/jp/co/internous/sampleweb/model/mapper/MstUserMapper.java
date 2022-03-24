@@ -51,7 +51,7 @@ public interface MstUserMapper {
 	 * @return 件数
 	 */
 	@Select("SELECT count(id) FROM mst_user WHERE user_name = #{userName}")
-	int findCountByUserName(@Param("userName") String userName);
+	int findCountByUserName(String userName);
 	
 	/**
 	 * ユーザー名を条件にパスワードを更新する

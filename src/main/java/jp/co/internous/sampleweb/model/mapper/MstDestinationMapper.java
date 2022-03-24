@@ -5,7 +5,6 @@ import java.util.List;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Options;
-import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
@@ -42,7 +41,7 @@ public interface MstDestinationMapper {
 	 * @return 宛先情報リスト
 	 */
 	@Select("SELECT * FROM mst_destination WHERE user_id = #{userId} AND status = 1 ORDER BY id ASC")
-	List<MstDestination> findByUserId(@Param("userId") int userId);
+	List<MstDestination> findByUserId(int userId);
 	
 	/**
 	 * 宛先情報IDを条件に論理削除する
@@ -50,5 +49,5 @@ public interface MstDestinationMapper {
 	 * @return 削除件数
 	 */
 	@Update("UPDATE mst_destination SET status = 0, updated_at = now() WHERE id = #{id}")
-	int logicalDeleteById(@Param("id") int id);
+	int logicalDeleteById(int id);
 }

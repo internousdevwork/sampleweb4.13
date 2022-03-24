@@ -25,7 +25,7 @@ public interface TblCartMapper {
 	 * @param userId ユーザーID
 	 * @return カート情報リスト
 	 */
-	List<CartDto> findByUserId(@Param("userId") int userId);
+	List<CartDto> findByUserId(int userId);
 	
 	/**
 	 * カート情報を登録する
@@ -55,7 +55,7 @@ public interface TblCartMapper {
 	 * @return 件数
 	 */
 	@Select("SELECT count(user_id) FROM tbl_cart WHERE user_id = #{userId}")
-	int findCountByUserId(@Param("userId") int userId);
+	int findCountByUserId(int userId);
 	
 	/**
 	 * ユーザーIDを条件にユーザーIDを更新する
@@ -91,5 +91,5 @@ public interface TblCartMapper {
 	 * @return 削除件数
 	 */
 	@Delete("DELETE FROM tbl_cart WHERE user_id = #{userId}")
-	int deleteByUserId(@Param("userId") int userId);
+	int deleteByUserId(int userId);
 }
