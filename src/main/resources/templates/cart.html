@@ -65,10 +65,7 @@ $(() => {
 		}
 		// カートの削除
 		deleteCart(checkedList, checkedIdList);
-		// 購入個数と金額の合計を算出し、合計欄に設定する
-		calcTotalArea();
-		// 削除ボタン非活性
-		changeDisable();
+
 	});
 
 	$('.checkList').on('change', changeDisable);
@@ -104,6 +101,11 @@ let deleteCart = (checkedList, checkedIdList) => {
 		if (checkList.length == 0) {
 			location.replace('/sampleweb/cart/');
 		}
+		
+		// 購入個数と金額の合計を算出し、合計欄に設定する
+		calcTotalArea();
+		// 削除ボタン非活性
+		changeDisable();
 	}, () => {
 		alert('Error: ajax connection failed.');
 	});		
