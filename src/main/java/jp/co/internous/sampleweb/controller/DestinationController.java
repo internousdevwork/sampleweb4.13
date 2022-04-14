@@ -66,6 +66,7 @@ public class DestinationController {
 		Map<String, String> map = gson.fromJson(destinationId, Map.class);
 		String id = map.get("destinationId");
 
+		// 論理削除する
 		int result = destinationMapper.logicalDeleteById(Integer.parseInt(id));
 
 		return result > 0;
