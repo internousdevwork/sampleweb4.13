@@ -12,13 +12,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-ma
 			(cart.product_count * product.price) AS subtotal,
 			cart.created_at AS created_at,
 			cart.updated_at AS updated_at
-		FROM 
+		FROM
 			tbl_cart AS cart
-		JOIN 
+		JOIN
 			mst_product AS product 
-		ON 
+		ON
 			cart.product_id = product.id
-		WHERE 
+		WHERE
 			user_id = #{userId}
 		ORDER BY updated_at DESC, created_at DESC;
 	</select>
