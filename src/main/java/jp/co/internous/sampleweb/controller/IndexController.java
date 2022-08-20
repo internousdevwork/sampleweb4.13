@@ -1,6 +1,7 @@
 package jp.co.internous.sampleweb.controller;
 
 import java.util.List;
+import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -40,11 +41,8 @@ public class IndexController {
 	public String index(Model m) {
 		
 		if (!loginSession.isLogined() && loginSession.getTmpUserId() == 0) {
-			int tmpUserId = (int)(Math.random() * 1000000000 * -1);
-			// 仮ユーザーIDが9桁になるまで10倍する
-			while (tmpUserId > -100000000) {
-				tmpUserId *= 10;
-			}
+			int tmpUserId = new Random().nextInt(1_000_000_000);
+			tmpUserId *= -1;
 			loginSession.setTmpUserId(tmpUserId);
 		}
 		
