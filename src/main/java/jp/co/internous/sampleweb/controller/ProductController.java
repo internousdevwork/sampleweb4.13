@@ -37,7 +37,7 @@ public class ProductController {
 		
 		m.addAttribute("product", product);
 		// page_header.htmlでsessionの変数を表示させているため、loginSessionも画面に送る。
-		m.addAttribute("loginSession",loginSession);
+		m.addAttribute("loginSession", loginSession);
 				
 		return "product_detail";
 	}

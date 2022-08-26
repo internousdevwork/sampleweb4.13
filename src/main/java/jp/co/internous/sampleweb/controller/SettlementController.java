@@ -54,7 +54,7 @@ public class SettlementController {
 		
 		m.addAttribute("destinations", destinations);
 		// page_header.htmlでsessionの変数を表示させているため、loginSessionも画面に送る。
-		m.addAttribute("loginSession",loginSession);
+		m.addAttribute("loginSession", loginSession);
 		
 		return "settlement";
 	}
