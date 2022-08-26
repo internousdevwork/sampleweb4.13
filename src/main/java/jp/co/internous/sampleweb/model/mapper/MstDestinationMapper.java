@@ -23,15 +23,11 @@ public interface MstDestinationMapper {
 	 * @param destination 宛先情報
 	 * @return 登録件数
 	 */
-	@Insert ("INSERT INTO mst_destination ("
-			+ "user_id, family_name, first_name, tel_number, address"
-			+ ") "
-			+ "VALUES ("
-			+ " #{userId}, #{familyName}, #{firstName}, #{telNumber}, #{address}"
-			+ ")")
-	// @Options(useGeneratedKeys=true, keyProperty="id")
-	// 上記アノテーションを使うことで自動連番されたidを
-	// 取得し、domainのidに設定ことができる
+	@Insert ("INSERT INTO mst_destination"
+			+ " (user_id, family_name, first_name, tel_number, address)"
+			+ " VALUES"
+			+ " (#{userId}, #{familyName}, #{firstName}, #{telNumber}, #{address})"
+			)
 	@Options(useGeneratedKeys=true, keyProperty="id")
 	int insert(MstDestination destination);
 	
