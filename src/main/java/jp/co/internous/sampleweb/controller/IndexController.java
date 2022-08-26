@@ -56,7 +56,7 @@ public class IndexController {
 		m.addAttribute("selected", 0);
 		m.addAttribute("products", products);
 		// page_header.htmlでsessionの変数を表示させているため、loginSessionも画面に送る。
-		m.addAttribute("loginSession",loginSession);
+		m.addAttribute("loginSession", loginSession);
 		
 		return "index";
 	}
@@ -87,7 +87,7 @@ public class IndexController {
 		m.addAttribute("categories", categories); 
 		m.addAttribute("products", products);
 		// page_header.htmlでsessionの変数を表示させているため、loginSessionも画面に送る。
-		m.addAttribute("loginSession",loginSession);
+		m.addAttribute("loginSession", loginSession);
 		
 		return "index";
 		
